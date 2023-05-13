@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honey Types</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: yellow;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold mt-4 mb-8 text-center">Types of Honey</h1>
+    
+        <div id="searchContainer" class="mb-4 flex justify-center">
+          <label for="searchInput">Search:</label>
+          <input type="text" id="searchInput" class="px-2 py-1 border border-gray-300 rounded">
+        </div>
+    
+        <ul id="honeyList" class="space-y-4">
+          <li class="flex items-center justify-center">
+            <img src="./img/arwin-neil-baichoo-yQzrDgU-KAI-unsplash.jpg" alt="Honey 1" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h2 class="text-xl font-bold">Acacia Honey</h2>
+              <p>Moisture content: 17%</p>
+              <p>Cause: Acacia trees.</p>
+            </div>
+          </li>
+          <li class="flex items-center justify-center">
+            <img src="./img/calum-lewis-8ze5W46EXGk-unsplash.jpg" alt="Honey 2" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h2 class="text-xl font-bold">Clover Honey</h2>
+              <p>Moisture content: 18%</p>
+              <p>Cause: Clover plants</p>
+            </div>
+          </li>
+          <li class="flex items-center justify-center">
+            <img src="./img/heather-gill-dktNU9tEOSI-unsplash.jpg" alt="Honey 3" class="w-16 h-16 rounded-full mr-4">
+            <div>
+              <h2 class="text-xl font-bold">Manuka Honey</h2>
+              <p>Moisture content: 15%</p>
+              <p>Cause: Manuka trees</p>
+            </div>
+          </li>
+          <!-- Add more honey types here -->
+        </ul>
+      </div>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const honeyList = document.getElementById('honeyList').getElementsByTagName('li');
+
+    searchInput.addEventListener('input', function () {
+      const searchTerm = searchInput.value.toLowerCase();
+      
+      for (let i = 0; i < honeyList.length; i++) {
+        const honey = honeyList[i].textContent.toLowerCase();
+        if (honey.indexOf(searchTerm) > -1) {
+          honeyList[i].style.display = '';
+        } else {
+          honeyList[i].style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
